@@ -68,6 +68,10 @@ public class ChestRoller : MonoBehaviour
 
     public string[] chestNames;
     public string[] WoodChestPrizes;
+    public string[] BronzeChestPrizes;
+    public string[] SilverChestPrizes;
+    public string[] GoldChestPrizes;
+    public string[] PlatinumChestPrizes;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -123,134 +127,224 @@ public class ChestRoller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             float ChestType = Random.Range(1, ChestTypeTotal);
+   
             if (ChestType <= WoodChest)
             {
                 for (int i = 0; i < WoodLoot.Length; i++)
                 {
-                    woodTotal += WoodLoot[i];
-
+                    bronzeTotal += BronzeLoot[i];
 
                 }
-                float woodLootPool = Random.Range(1, woodTotal);
+                float woodLootPool = Random.Range(1, bronzeTotal);
 
 
-
-                for (int i = 0; i < WoodLoot.Length; i++)
+                if (woodLootPool <= WoodChestCommon)
                 {
-                    woodCurrent += WoodLoot[i];
-                    if (woodLootPool <= woodCurrent)
-                    {
-                        //Debug.Log();
-                    }
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Common Wood Loot";
+                    woodTotal = 0;
                 }
 
+                else if (woodLootPool <= WoodChestCommon + WoodChestUncommon)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Uncommon Wood Loot";
+                    woodTotal = 0;
+                }
+                else if (woodLootPool <= WoodChestCommon + WoodChestUncommon + WoodChestRare)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Rare Wood Loot";
+                    woodTotal = 0;
+                }
+                else if (woodLootPool <= WoodChestCommon + WoodChestUncommon + WoodChestRare + WoodChestEpic)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Epic Wood Loot";
+                    woodTotal = 0;
+                }
+                else if (woodLootPool <= WoodChestCommon + WoodChestUncommon + WoodChestRare + WoodChestEpic + WoodChestLegendary)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Legendary Wood Loot";
+                    woodTotal = 0;
+                }
+            }
 
 
 
 
+            else if (ChestType <= BronzeChest + WoodChest)
+            {
+                for (int i = 0; i < BronzeLoot.Length; i++)
+                {
+                    bronzeTotal += BronzeLoot[i];
 
+                }
+                float bronzeLootPool = Random.Range(1, bronzeTotal);
 
-
-
-
-
-
-
-
-
-                //if(woodLootPool <= WoodChestCommon)
-                //{
-                //    chestText.SetActive(true);
-                //    chestText.GetComponent<TextMeshProUGUI>().text = "You got Common Wood Loot";
-                //    woodTotal = 0;
-                //}
-
-                //else if(woodLootPool <= WoodChestCommon + WoodChestUncommon)
-                //{
-                //    chestText.SetActive(true);
-                //    chestText.GetComponent<TextMeshProUGUI>().text = "You got Uncommon Wood Loot";
-                //    woodTotal = 0;
-                //}
-                //else if(woodLootPool <= WoodChestCommon + WoodChestUncommon + WoodChestRare)
-                //{
-                //    chestText.SetActive(true);
-                //    chestText.GetComponent<TextMeshProUGUI>().text = "You got Rare Wood Loot";
-                //    woodTotal = 0;
-                //}
-                //else if(woodLootPool <= WoodChestCommon + WoodChestUncommon + WoodChestRare + WoodChestEpic)
-                //{
-                //    chestText.SetActive(true);
-                //    chestText.GetComponent<TextMeshProUGUI>().text = "You got Epic Wood Loot";
-                //    woodTotal = 0;
-                //}
-                //else if(woodLootPool <= WoodChestCommon + WoodChestUncommon + WoodChestRare + WoodChestEpic + WoodChestLegendary)
-                //{
-                //    chestText.SetActive(true);
-                //    chestText.GetComponent<TextMeshProUGUI>().text = "You got Legendary Wood Loot";
-                //    woodTotal = 0;
-                //}
+                if (bronzeLootPool <= BronzeChestCommon)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Common Bronze Loot";
+                    bronzeTotal = 0;
+                }
+                else if (bronzeLootPool <= BronzeChestCommon + BronzeChestUncommon)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Uncommon Bronze Loot";
+                    bronzeTotal = 0;
+                }
+                else if (bronzeLootPool <= BronzeChestCommon + BronzeChestUncommon + BronzeChestRare)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Rare Bronze Loot";
+                    bronzeTotal = 0;
+                }
+                else if (bronzeLootPool <= BronzeChestCommon + BronzeChestUncommon + BronzeChestRare + BronzeChestEpic)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Epic Bronze Loot";
+                    bronzeTotal = 0;
+                }
+                else if (bronzeLootPool <= BronzeChestCommon + BronzeChestUncommon + BronzeChestRare + BronzeChestEpic + BronzeChestLegendary)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Legendary Bronze Loot";
+                    bronzeTotal = 0;
+                }
 
 
             }
-            //        else if (ChestType <= BronzeChest + WoodChest)
-            //        {
-            //            for(int i = 0; i < BronzeLoot.Length; i++)
-            //            {
-            //                bronzeTotal += BronzeLoot[i];
 
-            //            }
-            //            float bronzeLootPool = Random.Range(1, bronzeTotal);
+            else if (ChestType <= SilverChest + BronzeChest + WoodChest)
+            {
+                for (int i = 0; i < SilverLoot.Length; i++)
+                {
+                    silverTotal += SilverLoot[i];
 
-            //            if (bronzeLootPool <= BronzeChestCommon)
-            //            {
-            //                chestText.SetActive(true);
-            //                chestText.GetComponent<TextMeshProUGUI>().text = "You got Uncommon Bronze Loot";
-            //            }
-            //            else if (bronzeLootPool <= BronzeChestCommon + BronzeChestUncommon)
+                }
+                float SilverLootPool = Random.Range(1, silverTotal);
+
+                if (SilverLootPool <= SilverChestCommon)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Common Silver Loot";
+                    silverTotal = 0;
+                }
+                else if (SilverLootPool <= SilverChestCommon + SilverChestUncommon)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Uncommon Silver Loot";
+                    silverTotal = 0;
+                }
+                else if (SilverLootPool <= SilverChestCommon + SilverChestUncommon + SilverChestRare)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Rare Silver Loot";
+                    silverTotal = 0;
+                }
+                else if (SilverLootPool <= SilverChestCommon + SilverChestUncommon + SilverChestRare + SilverChestEpic)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Epic Silver Loot";
+                    silverTotal = 0;
+                }
+                else if (SilverLootPool <= SilverChestCommon + SilverChestUncommon + SilverChestRare + SilverChestEpic + SilverChestLegendary)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Legendary Silver Loot";
+                    silverTotal = 0;
+                }
 
 
+            }
 
+            else if (ChestType <= GoldChest + SilverChest + BronzeChest + WoodChest)
+            {
+                for (int i = 0; i < GoldLoot.Length; i++)
+                {
+                    goldTotal += GoldLoot[i];
 
+                }
+                float goldLootPool = Random.Range(1, goldTotal);
 
+                if (goldLootPool <= GoldChestCommon)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Common Gold Loot";
+                    goldTotal = 0;
+                }
+                else if (goldLootPool <= GoldChestCommon + GoldChestUncommon)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Uncommon Gold Loot";
+                    goldTotal = 0;
+                }
+                else if (goldLootPool <= GoldChestCommon + GoldChestUncommon + GoldChestRare)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Rare Gold Loot";
+                    goldTotal = 0;
+                }
+                else if (goldLootPool <= GoldChestCommon + GoldChestUncommon + GoldChestRare + GoldChestEpic)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Epic Gold Loot";
+                    goldTotal = 0;
+                }
+                else if (goldLootPool <= GoldChestCommon + GoldChestUncommon + GoldChestRare + GoldChestEpic + GoldChestLegendary)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Legendary Gold Loot";
+                    goldTotal = 0;
+                }
 
+            }
 
+            else if (ChestType <= PlatinumChest + GoldChest + SilverChest + BronzeChest + WoodChest)
+            {
+                for (int i = 0; i < PlatinumLoot.Length; i++)
+                {
+                    platinumTotal += PlatinumLoot[i];
 
+                }
+                float platinumLootPool = Random.Range(1, platinumTotal);
 
-
-
-
-
-            //        }
-            //        else if (ChestType <= SilverChest + BronzeChest + WoodChest)
-            //        {
-            //            for (int i = 0; i < SilverLoot.Length; i++)
-            //            {
-            //                silverTotal += SilverLoot[i];
-            //            }
-            //        }
-            //        else if (ChestType <= GoldChest + SilverChest + BronzeChest + WoodChest)
-            //        {
-            //            for (int i = 0; i < GoldLoot.Length; i++)
-            //            {
-            //                goldTotal += GoldLoot[i];
-            //            }
-            //        }
-            //        else if (ChestType <= PlatinumChest + GoldChest + SilverChest + BronzeChest + WoodChest)
-            //        {
-            //            for (int i = 0; i < PlatinumLoot.Length; i++)
-            //            {
-            //                platinumTotal += PlatinumLoot[i];
-            //            }
-            //        }
-            //    }
-
+                if (platinumLootPool <= PlatinumChestCommon)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Common Platinum Loot";
+                    platinumTotal = 0;
+                }
+                else if (platinumLootPool <= PlatinumChestCommon + PlatinumChestUncommon)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Uncommon Platinum Loot";
+                    platinumTotal = 0;
+                }
+                else if (platinumLootPool <= PlatinumChestCommon + PlatinumChestUncommon + PlatinumChestRare)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Rare Platinum Loot";
+                    platinumTotal = 0;
+                }
+                else if (platinumLootPool <= PlatinumChestCommon + PlatinumChestUncommon + PlatinumChestRare + PlatinumChestEpic)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Epic Platinum Loot";
+                    platinumTotal = 0;
+                }
+                else if (platinumLootPool <= PlatinumChestCommon + PlatinumChestUncommon + PlatinumChestRare + PlatinumChestEpic + PlatinumChestLegendary)
+                {
+                    chestText.SetActive(true);
+                    chestText.GetComponent<TextMeshProUGUI>().text = "You got Legendary Platinum Loot";
+                    platinumTotal = 0;
+                }
+            }
         }
-
-
-
-
     }
 }

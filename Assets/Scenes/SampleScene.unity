@@ -443,7 +443,36 @@ MonoBehaviour:
   - Silver Chest
   - Gold Chest
   - Platinum Chest
-  WoodChestPrizes: []
+  WoodChestPrizes:
+  - Common
+  - Uncommon
+  - Rare
+  - Epic
+  - Legendary
+  BronzeChestPrizes:
+  - Common
+  - Uncommon
+  - Rare
+  - Epic
+  - Legendary
+  SilverChestPrizes:
+  - Common
+  - Uncommon
+  - Rare
+  - Epic
+  - Legendary
+  GoldChestPrizes:
+  - Common
+  - Uncommon
+  - Rare
+  - Epic
+  - Legendary
+  PlatinumChestPrizes:
+  - Common
+  - Uncommon
+  - Rare
+  - Epic
+  - Legendary
 --- !u!4 &798780677
 Transform:
   m_ObjectHideFlags: 0
